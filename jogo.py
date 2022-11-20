@@ -86,3 +86,30 @@ def win():
 		won_text = fonte_conometro.render("You won !!",True,cor)
 		won_rect = won_text.get_rect(center = (largura//2, altura//2))
 		tela.blit(won_text, won_rect)
+
+pygame.init()
+largura = 800 #tupla
+altura = 650 #tupla
+tela = pygame.display.set_mode((largura, altura)) #tupla
+pygame.display.set_caption("2D Breakout")
+tempo = pygame.time.Clock()
+
+cor_do_fundo = pygame.Color("#2b2b2b")
+cor = pygame.Color("#ff7259")
+pontuacao = 0
+
+bastao = pygame.Rect(largura//2-150//2, altura-20, 150, 10)
+direcao_x_bastao = 0
+
+bola = pygame.Rect(largura//2-10,altura-40,20,20)
+posicao_x_bola = 5
+posicao_y_bola = -5
+
+fileiras = 4
+colunas = 5
+bastao_esquerda = 10
+topo_bastao = 10
+largura_dos_blocos = 147
+altura_dos_blocos = 40
+listaDeBlocos = []
+gerador_de_blocos()
