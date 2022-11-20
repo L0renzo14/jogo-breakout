@@ -136,3 +136,25 @@ while True:
 		if event.type == KEYUP:
 			if event.key == K_LEFT or event.key == K_RIGHT:
 				direcao_x_bastao = 0 
+
+	tela.fill(cor_do_fundo)
+
+	bastao.x += direcao_x_bastao
+
+	if bastao.left <= 0:
+		bastao.left = 0
+
+	if bastao.right >= largura:
+		bastao.right = largura
+
+	if tempo_perdido:
+		redefinir()  
+
+	
+	animacaoDaBola()
+	desenhoDosBlocos(listaDeBlocos)
+	escritaPontuacao()
+	pygame.draw.rect(tela, cor, bastao)
+	pygame.draw.ellipse(tela, cor, bola)
+	win()
+	pygame.display.update()
