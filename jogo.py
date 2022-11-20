@@ -113,3 +113,26 @@ largura_dos_blocos = 147
 altura_dos_blocos = 40
 listaDeBlocos = []
 gerador_de_blocos()
+
+tempo_perdido = None #escritas do jogo
+fonte_conometro = pygame.font.SysFont("monospace", 70)
+fonte_pontuacao = pygame.font.SysFont("monospace", 35)
+
+while True:
+	tempo.tick(100)
+	for event in pygame.event.get():
+		if event.type == QUIT:
+			print(pontuacao)
+			pygame.quit()
+			sys.exit()
+
+		if event.type == KEYDOWN:#mover o bastao
+			if event.key == K_LEFT:
+				direcao_x_bastao = -5
+
+			if event.key == K_RIGHT:
+				direcao_x_bastao = 5
+
+		if event.type == KEYUP:
+			if event.key == K_LEFT or event.key == K_RIGHT:
+				direcao_x_bastao = 0 
